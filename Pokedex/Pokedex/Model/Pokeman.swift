@@ -18,15 +18,15 @@ class Pokeman {
         case name
         case id
         case moves
-        case spritePath = "sprites"
-        case frontShiny = "front_shiny"
         case move
+        case sprites
+        case frontShiny = "front_shiny"
     }
     
     init?(dictionary: [String : Any]) {
         guard let name = dictionary[Keys.name.rawValue] as? String,
               let id = dictionary[Keys.id.rawValue] as? Int,
-              let spriteDict = dictionary[Keys.spritePath.rawValue] as? [String : Any],
+              let spriteDict = dictionary[Keys.sprites.rawValue] as? [String : Any],
               let spritePath = spriteDict[Keys.frontShiny.rawValue] as? String,
               let moves = dictionary[Keys.moves.rawValue] as? [[String : Any]] else {
                   print("You're A Failure At Exactly: \(#file)\(#line)")
